@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Edgeway brand tokens */
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-amber: var(--amber);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Edgeway reference design (security-dark-ui) — near-black base, NOT navy.
+     Gold #c9a227 accent throughout. Cards use gold border + glow (card-glow).
+     All values extracted directly from the reference site's CSS for exact match. */
+  --background: #080810;                          /* near-black page bg */
+  --foreground: #f0f0f5;                          /* near-white text */
+  --card: #0f0f1a;                                /* card surface — very dark w/ slight blue */
+  --card-foreground: #f0f0f5;
+  --popover: #0f0f1a;
+  --popover-foreground: #f0f0f5;
+  /* Primary = gold (CTAs) */
+  --primary: #c9a227;
+  --primary-foreground: #080810;
+  --secondary: #1a1a28;                           /* lighter dark surface */
+  --secondary-foreground: #f0f0f5;
+  --muted: #1a1a28;
+  --muted-foreground: #8a8aa8;                    /* gray-blue muted text */
+  /* Accent = slightly lighter dark surface */
+  --accent: #1e1e2e;
+  --accent-foreground: #e8c65a;
+  --destructive: #ef4444;
+  --destructive-foreground: #fff;
+  --border: #c9a22726;                            /* gold @ 15% — signature card border */
+  --input: #1a1a28;
+  --ring: #c9a227;
+  /* Edgeway brand palette */
+  --gold: #c9a227;                                /* primary gold */
+  --gold-soft: #e8c65a;                           /* hover/highlight gold */
+  --gold-dark: #8a6b10;                           /* dark gold */
+  --amber: #f59e0b;                               /* 24/7 dispatch alert */
+  --red: #c0392b;                                 /* logo red swoosh */
+  --ink: #0a0a0f;                                 /* darkest near-black for anchor sections */
+  --ink-soft: #0f0f1a;                            /* card-level surface */
+  /* Shadows — subtle, no glow. Just thin border + tiny soft shadow for depth. */
+  --shadow-glow: 0 0 0 1px #c9a2271a, 0 2px 8px -4px #00000080;
+  --shadow-glow-hover: 0 0 0 1px #c9a2273d, 0 6px 16px -6px #00000080;
+  --shadow-gold: 0 0 12px -6px #c9a22740;
+  --shadow-deep: 0 30px 60px -25px #000c;
+  /* Gradients */
+  --gradient-navy: linear-gradient(135deg, #0a0a0f, #111128);
+  --gradient-gold: linear-gradient(135deg, #c9a227, #e8c65a);
+  --gradient-hero: linear-gradient(135deg, #080810 0%, #0f0f22 50%, #0a0a18 100%);
+  --feature-bg: linear-gradient(180deg, #0a0a14 0%, #080810 100%);
+  --chart-1: #c9a227;
+  --chart-2: #e8c65a;
+  --chart-3: #c0392b;
+  --chart-4: #8a8aa8;
+  --chart-5: #1e1e2e;
+  --sidebar: #0a0a0f;
+  --sidebar-foreground: #f0f0f5;
+  --sidebar-primary: #c9a227;
+  --sidebar-primary-foreground: #080810;
+  --sidebar-accent: #1a1a28;
+  --sidebar-accent-foreground: #f0f0f5;
+  --sidebar-border: #c9a22726;
+  --sidebar-ring: #c9a227;
+}
+
+.dark {
+  --background: #080810;
+  --foreground: #f0f0f5;
+  --card: #0f0f1a;
+  --card-foreground: #f0f0f5;
+  --popover: #0f0f1a;
+  --popover-foreground: #f0f0f5;
+  --primary: #c9a227;
+  --primary-foreground: #080810;
+  --secondary: #1a1a28;
+  --secondary-foreground: #f0f0f5;
+  --muted: #1a1a28;
+  --muted-foreground: #8a8aa8;
+  --accent: #1e1e2e;
+  --accent-foreground: #e8c65a;
+  --destructive: #ef4444;
+  --destructive-foreground: #fff;
+  --border: #c9a22726;
+  --input: #1a1a28;
+  --ring: #c9a227;
+  --sidebar: #0f0f1a;
+  --sidebar-foreground: #f0f0f5;
+  --sidebar-primary: #c9a227;
+  --sidebar-primary-foreground: #080810;
+  --sidebar-accent: #1a1a28;
+  --sidebar-accent-foreground: #f0f0f5;
+  --sidebar-border: #c9a22726;
+  --sidebar-ring: #c9a227;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv01";
+    /* Ensure the navy fills the whole viewport even before content paints */
+    background-color: var(--background);
+  }
+  /* Headings use Montserrat via --font-heading */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), Montserrat, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading), Sora, system-ui, sans-serif;
+  }
+  .text-gold {
+    color: var(--gold);
+  }
+  .bg-ink {
+    background-color: var(--ink);
+  }
+  .bg-feature {
+    background-image: var(--feature-bg);
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+    opacity: 0.4;
+  }
+  .hero-grain {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(201, 162, 39, 0.10), transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.05), transparent 50%);
+  }
+  .gold-line {
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  /* Subtle card treatment: thin faint gold border + minimal soft shadow.
+     No glow/light behind the card — just clean depth. */
+  .card-glow {
+    background-color: var(--card);
+    border: 1px solid #c9a2271a;
+    box-shadow: var(--shadow-glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card-glow:hover {
+    border-color: #c9a2273d;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow-hover);
+  }
+  .animate-pulse-amber {
+    animation: pulse-amber 2s ease-in-out infinite;
+  }
+  @keyframes pulse-amber {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+    50% { opacity: 0.85; box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar for long lists */
+.custom-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.custom-scroll::-webkit-scrollbar-track { background: transparent; }
+.custom-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
